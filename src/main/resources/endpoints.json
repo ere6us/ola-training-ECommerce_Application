@@ -1,0 +1,143 @@
+[
+  {
+    "endpoint": "signup",
+    "path": "/signup",
+    "method": "POST",
+    "request-data": {
+      "email": {
+        "type": "Email",
+        "max": 40,
+        "required": true,
+        "unique": true
+      },
+      "username": {
+        "type": "String",
+        "max": 30,
+        "required": true,
+        "unique": true
+      },
+      "password": {
+        "type": "String",
+        "max": 30,
+        "required": true
+      }
+    },
+    "response": [
+      {
+        "status": "success",
+        "response": {
+          "http-status": 200,
+          "response-data": {
+            "flag": true,
+            "message": "Login successful"
+          }
+        }
+      },
+      {
+        "status": "client-error",
+        "response": {
+
+        }
+
+      }
+    ]
+  },
+  {
+    "endpoint": "login",
+    "path": "/login",
+    "method": "POST",
+    "request-data": {
+      "username": {
+        "type": "String",
+        "max": 30,
+        "required": true,
+        "unique": true,
+        "existing": true
+      },
+      "password": {
+        "type": "String",
+        "max": 30,
+        "required": true
+      }
+    }
+  },
+  {
+    "endpoint": "search",
+    "path": "/search",
+    "method": "GET",
+    "request-data": {
+      "keyword": {
+        "type": "String",
+        "max": 30,
+        "required": true
+      }
+    }
+  },
+  {
+    "endpoint": "addToCart",
+    "path": "/addToCart",
+    "method": "POST",
+    "request-data": {
+      "item": {
+        "item-id": {
+          "type": "String",
+          "max": 30,
+          "required": true
+        },
+        "required": true
+      },
+      "user": {
+        "user-id": {
+          "type": "String",
+          "max": 30,
+          "required": true
+        },
+        "required": true
+      }
+    }
+  },
+  {
+    "endpoint": "buy",
+    "path": "/buy",
+    "method": "POST",
+    "request-data": {
+      "item": {
+        "item-id": {
+          "type": "String",
+          "max": 30,
+          "required": true
+        },
+        "price": {
+          "type": "double",
+          "required": true
+        },
+        "required": true
+      },
+      "user": {
+        "user-id": {
+          "type": "String",
+          "max": 30,
+          "required": true
+        },
+        "required": true
+      },
+      "delivery": {
+        "location": {
+          "type": "String",
+          "max": 50,
+          "required": true
+        },
+        "landmark": {
+          "type": "String",
+          "max": 30,
+          "required": true
+        },
+        "pin-code": {
+          "type": "int",
+          "max": 6,
+          "required": true
+        }
+      }
+    }
+  }
+]
